@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+    web:
+        # optional
+        container_name: mylocalweb
+
+        # tag the image, so we can later push it
+        image: nginx
+
+        # should Nginx crash, always restart it
+        restart: always
+
+        # treat port 80 of the host as port 80 of the container 
+        ports:
+            - 8000:80

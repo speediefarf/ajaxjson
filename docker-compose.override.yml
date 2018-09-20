@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+    build:
+        container_name: devlocal
+        image: mylocalweb
+        build:
+            context: ./
+            dockerfile: docker/Dockerfile
+        volumes:
+            - ./:/opt
+    web:
+        build:
+            context: ./
+            dockerfile: docker/Dockerfile
+        volumes:
+            # Nginx should pick up local changes to files in ./output
+            - ./web:/usr/share/nginx/html
